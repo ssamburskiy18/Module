@@ -22,6 +22,10 @@ public class Main {
                         System.out.println("Ход коня по бесконечной шахматной доске. Вводится текущее положение коня и клетка в которую пробуют его передвинуть за 1 ход. Программа должна проверить, возможно ли это сделать.");
                         chess();
                         break;
+                    case 3:
+                        System.out.println("Даны точки A,B,C  на плоскости.  Вычислить площадь  треугольника ABC.");
+                        triangle();
+                        break;
                     default:
                         System.out.println("Укажите верный номер таска");
                         break;
@@ -73,8 +77,17 @@ public class Main {
             System.out.println("YES");
         else
             System.out.println("NO"); }
-
+    public static void triangle(){
+        System.out.println("Введите координаты точки А,через пробел (х,у): ");
+        int xA = scan.nextInt();
+        int yA = scan.nextInt();
+        System.out.println("Введите координаты точки B,через пробел (х,у): ");
+        int xB = scan.nextInt();
+        int yB = scan.nextInt();
+        System.out.println("Введите координаты точки C,через пробел (х,у): ");
+        int xC = scan.nextInt();
+        int yC = scan.nextInt();
+        double S = abs(0.5 * ((xB - xA) * (yC - yA) - (xC - xA) * (yB - yA)));
+        System.out.println("Площадь треугольника = " + (int)S);
+    }
 }
-
-
-
