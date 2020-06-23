@@ -18,6 +18,10 @@ public class Main {
                         System.out.println("Дан массив чисел. Вернуть число уникальных символов");
                         uniqueCharacters();
                         break;
+                    case 2:
+                        System.out.println("Ход коня по бесконечной шахматной доске. Вводится текущее положение коня и клетка в которую пробуют его передвинуть за 1 ход. Программа должна проверить, возможно ли это сделать.");
+                        chess();
+                        break;
                     default:
                         System.out.println("Укажите верный номер таска");
                         break;
@@ -54,6 +58,21 @@ public class Main {
         result = countUnique - count;
         System.out.println("\nЧисло уникальных символов: " + result); }
 
+    public static void chess(){
+        System.out.println("Введите номер строки коня: ");
+        int x1 = scan.nextInt();
+        System.out.println("Введите номер стобца коня: ");
+        int y1 = scan.nextInt();
+        System.out.println("Введите номер строки на которую ходите походить: ");
+        int x2 = scan.nextInt();
+        System.out.println("Введите номер стобца на который хотите походить: ");
+        int y2 = scan.nextInt();
+        int dx = abs(x1-x2);
+        int dy = abs(y1 - y2);
+        if (dx == 1 & dy == 2 || dx == 2 & dy == 1)
+            System.out.println("YES");
+        else
+            System.out.println("NO"); }
 
 }
 
