@@ -1,6 +1,7 @@
 package module1;
 import java.util.Scanner;
 
+
 import static java.lang.StrictMath.abs;
 
 public class Main {
@@ -12,8 +13,8 @@ public class Main {
         switch (levelNumber) {
             case 1:
                 System.out.println("Выберите номер таска от 1 до 3");
-                int taskNumber = scan.nextInt();
-                switch (taskNumber) {
+                int taskNumber1 = scan.nextInt();
+                switch (taskNumber1) {
                     case 1:
                         System.out.println("Дан массив чисел. Вернуть число уникальных символов");
                         uniqueCharacters();
@@ -30,6 +31,23 @@ public class Main {
                         System.out.println("Укажите верный номер таска");
                         break;
                 }
+            case 2:
+                System.out.println("Выберите номер таска от 1 до 2");
+                int taskNumber2 = scan.nextInt();
+                switch (taskNumber2){
+                    case 1:
+                        System.out.println("1.Учитывая строку, содержащую символы '(', ')', '{', '}', '[' и ']', определите, является ли входная строка допустимой.\n" +
+                                "Входная строка действительна, если:\n" +
+                                "Открытые скобки должны быть закрыты скобками того же типа.\n" +
+                                "Открытые скобки должны быть закрыты в правильном порядке.\n" +
+                                "Обратите внимание, что пустая строка также считается допустимой.");
+                        System.out.println("Введите строку :");
+                        String str = scan.next();
+                        correctInput(str);
+                        break;
+
+                }
+
         }
     }
 
@@ -77,6 +95,7 @@ public class Main {
             System.out.println("YES");
         else
             System.out.println("NO"); }
+
     public static void triangle(){
         System.out.println("Введите координаты точки А,через пробел (х,у): ");
         int xA = scan.nextInt();
@@ -90,4 +109,49 @@ public class Main {
         double S = abs(0.5 * ((xB - xA) * (yC - yA) - (xC - xA) * (yB - yA)));
         System.out.println("Площадь треугольника = " + (int)S);
     }
+
+    public static void correctInput(String str){
+
+        int checkBrackets = 0;
+        for (int i = 0;i < str.length();i++){
+            if (checkBrackets < 0){
+                System.out.println("Строка не валидна"); }
+        String oneSymbol =  str.substring(i, i + 1);
+            if (oneSymbol.equals("(")){
+                checkBrackets ++; }
+            else {
+                checkBrackets--; }
+
+        }
+        for (int i = 0;i < str.length();i++){
+            String oneSymbol =  str.substring(i, i + 1);
+            if (oneSymbol.equals("{")){
+                checkBrackets ++; }
+            else {
+                checkBrackets--; }
+        }
+        for (int i = 0;i < str.length();i++){
+            String oneSymbol =  str.substring(i, i + 1);
+            if (oneSymbol.equals("[")){
+                checkBrackets ++; }
+            else {
+                checkBrackets--; }
+
+        }
+        if (checkBrackets == 0){
+            System.out.println("Строка валидна"); }
+        else {
+            System.out.println("Строка не валидна"); }
+
+    }
+
 }
+
+
+
+
+
+
+
+
+
